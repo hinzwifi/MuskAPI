@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const sample = require("lodash/sample");
+const forEa = require("lodash/forEach");
 const { v4: uuidv4 } = require("uuid");
 const ApiModel = require("./model/musk.model")(mongoose);
 const MuskAdmin = require("./model/muskAdmin.model")(mongoose);
@@ -12,7 +13,10 @@ app.use(bodyParser.json());
 app.use(express());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(process.env.PORT || port);
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
+  res.json({ this: "Site Here" });
+});
+app.get("/api/random", (req, res) => {
   ApiModel.find({}).exec(function (err, books) {
     if (err) {
       res.send("error has occured");
@@ -22,16 +26,30 @@ app.get("/api", (req, res) => {
         message: {
           type: "success",
           quoteId: random._id,
-          quotes: random.quote,
-          URL: `https://${req.headers.host}${random.quoteURL}`,
-          addedBy: random.addedBy,
+          quote: random.quote,
+          URL: `https://${req.headers.host}/api/quote/${random._id}`,
         },
       });
     }
   });
 });
-app.get("/", (req, res) => {
-  res.json("Site Here");
+app.get("/api", (req, res) => {
+  ApiModel.find({}).exec(async function (err, books) {
+    if (err) {
+      res.send("error has occured");
+    } else {
+      let data = [];
+      const bruh = await forEa(books, function (value) {
+        data.push({
+          type: "success",
+          quoteId: value._id,
+          quote: value.quote,
+          kekw: `https://${req.headers.host}/api/quote/${value._id}`,
+        });
+      });
+      res.json(data);
+    }
+  });
 });
 app.get("/api/quote/:id", async (req, res) => {
   try {
@@ -50,7 +68,6 @@ app.get("/api/quote/:id", async (req, res) => {
           quoteId: tweet_id._id,
           quotes: tweet_id.quote,
           URL: `https://${req.headers.host}${tweet_id.quoteURL}`,
-          home: `https://${req.headers.host}`,
         },
       });
     }
@@ -64,22 +81,31 @@ app.post("/api/admin", async (req, res) => {
     res.json({
       message: {
         type: "error",
-        text: "Not an Admin",
+        text: "No user found",
       },
     });
   } else {
-    const randomID = uuidv4();
-    let newQuote = new ApiModel({
-      _id: randomID,
-      quote: req.body.quote,
-      quoteURL: `/api/quote/${randomID}`,
-      addedBy: admin_id.username,
-    });
-    try {
-      await newQuote.save();
-      res.json(newQuote);
-    } catch (err) {
-      res.status(400).json({ message: err });
+    if (!admin_id.admin) {
+      res.json({
+        message: {
+          type: "error",
+          text: "Not an Admin",
+        },
+      });
+    } else {
+      const randomID = uuidv4();
+      let newQuote = new ApiModel({
+        _id: randomID,
+        quote: req.body.quote,
+        quoteURL: `/api/quote/${randomID}`,
+        addedBy: admin_id.username,
+      });
+      try {
+        await newQuote.save();
+        res.json(newQuote);
+      } catch (err) {
+        res.status(400).json({ message: err });
+      }
     }
   }
 });
