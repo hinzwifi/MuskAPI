@@ -2,7 +2,7 @@
 
 A hand-curated quotes from Elon Musk
 
-## Official link
+## Base URL
 
 #### https://muskapi.hinzwifi.xyz
 
@@ -10,7 +10,7 @@ A hand-curated quotes from Elon Musk
 
 ## API Reference
 
-#### Get all items
+#### Get all quotes
 
 ```
   GET /api/
