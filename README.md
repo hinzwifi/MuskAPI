@@ -8,15 +8,35 @@ A hand-curated quotes from Elon Musk
 
 ## API Reference
 
-#### Get all quotes
+#### Get all the quote
 
 ```
   GET /api/
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
+<br/>
+
+#### Get a random quote
+
+```
+  GET /api/random
+```
+
+##### Result:
+
+```
+{
+  message: {
+      type: "success",
+      quoteId: "4cfdb0da-125e-4430-bf81-ca3e95b1147d",
+      quotes: "It is possible for ordinary people to choose to be extraordinary.",
+      URL: "https://muskapi.herokuapp.com/api/quote/4cfdb0da-125e-4430-bf81-ca3e95b1147d",
+      addedBy: "hinzwifi"
+  }
+}
+```
+
+<br/>
 
 #### Get a specific quote
 
@@ -41,19 +61,7 @@ A hand-curated quotes from Elon Musk
 
 ## Screenshots
 
-<!-- ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here) -->
-
-```
-{
-  message: {
-      type: "success",
-      quoteId: "4cfdb0da-125e-4430-bf81-ca3e95b1147d",
-      quotes: "It is possible for ordinary people to choose to be extraordinary.",
-      URL: "https://muskapi.herokuapp.com/api/quote/4cfdb0da-125e-4430-bf81-ca3e95b1147d",
-      addedBy: "hinzwifi"
-  }
-}
-```
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
 ## FAQ
 
