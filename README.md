@@ -67,11 +67,11 @@ A hand-curated quotes from Elon Musk
 
 #### Why did you make this API?
 
-- I wanted to learn how to make a REST API
+- I wanted to learn make a REST API
 
 #### I understand, though why is it Elon Musk though
 
-- The only reason why because it is Elon Musk
+- It's Elon Musk, Why not?
 
 ## Acknowledgements
 
