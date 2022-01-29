@@ -34,6 +34,8 @@ A hand-curated quotes from Elon Musk
 | :-------- | :------- | :------- | :-------------------------------- |
 | `id`      | `string` | `Yes`    | **Required**. Id of item to fetch |
 
+<br/>
+
 #### Add new quotes
 
 ```
@@ -44,6 +46,8 @@ A hand-curated quotes from Elon Musk
 | :-------- | :------- | :------- | :--------------------------- |
 | `adminId` | `string` | `Yes`    | Needed the account Id to add |
 | `quote`   | `string` | `Yes`    | Add the quote                |
+
+<br/>
 
 ## Screenshots
 
