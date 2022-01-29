@@ -45,7 +45,7 @@ A hand-curated quotes from Elon Musk
 
 <!-- ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here) -->
 
-```
+```JSON
 {
 message: {
 type: "success",
