@@ -66,7 +66,7 @@ app.post("/api/admin/:id", async (req, res) => {
       let newQuote = new ApiModel({
         _id: randomID,
         quote: req.body.quote,
-        quoteURL: `http://localhost:6900/api/tweet/${randomID}`,
+        quoteURL: `/api/tweet/${randomID}`,
         addedBy: admin_id.username,
       });
       try {
@@ -76,22 +76,32 @@ app.post("/api/admin/:id", async (req, res) => {
         res.status(400).json({ message: err });
       }
     }
-  } else {
-    res.redirect("/api");
   }
 });
-// NOT YET SURE IF WILL ADD
-// app.get("/api/category/:category", (req, res) => {
-//   try {
-//     const quote_category = req.params.category;
-//     if (!quote_category) {
-//       res.json("eat shit");
-//     } else {
-//       res.json({ category: quote_category });
-//     }
-//   } catch (err) {
-//     res.status(400).json({ message: err });
-//   }
-// });
 
+// NOT YET SURE IF WILL ADD
+app.get("/api/category/:category", (req, res) => {
+  try {
+    const quote_category = req.params.category;
+    ApiModel.find({ category: quote_category }).exec(function (err, books) {
+      if (err) {
+        res.send("error has occured");
+      } else {
+        const random = sample(books);
+        res.json({
+          message: {
+            type: "success",
+            quotes: random.quote,
+            URL: random.quoteURL,
+          },
+        });
+      }
+    });
+  } catch (err) {
+    res.status(400).json({ message: err });
+  }
+});
+app.get("*", function (req, res) {
+  res.redirect("/api");
+});
 mongoose.connect(process.env.MONGO_URL || process.env.MONGO_LOCAL_URL);
