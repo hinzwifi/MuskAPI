@@ -23,10 +23,14 @@ app.get("/api", (req, res) => {
           type: "success",
           quotes: random.quote,
           URL: random.quoteURL,
+          addedBy: random.addedBy,
         },
       });
     }
   });
+});
+app.get("/", (req, res) => {
+  res.json("Site Here");
 });
 app.get("/api/tweet/:id", async (req, res) => {
   try {
@@ -42,8 +46,10 @@ app.get("/api/tweet/:id", async (req, res) => {
       res.json({
         message: {
           type: "success",
+          quoteId: tweet_id._id,
           quotes: tweet_id.quote,
           URL: tweet_id.quoteURL,
+          home: `https://${req.headers.host}`,
         },
       });
     }
@@ -51,36 +57,35 @@ app.get("/api/tweet/:id", async (req, res) => {
     res.status(400).json({ message: err });
   }
 });
-app.post("/api/admin/:id", async (req, res) => {
-  if (req.params.id) {
-    const admin_id = await MuskAdmin.findById({ _id: req.params.id });
-    if (!admin_id) {
-      res.json({
-        message: {
-          type: "error",
-          text: "Not an Admin",
-        },
-      });
-    } else {
-      const randomID = uuidv4();
-      let newQuote = new ApiModel({
-        _id: randomID,
-        quote: req.body.quote,
-        quoteURL: `/api/tweet/${randomID}`,
-        addedBy: admin_id.username,
-      });
-      try {
-        // await newQuote.save();
-        res.json(newQuote);
-      } catch (err) {
-        res.status(400).json({ message: err });
-      }
+app.post("/api/admin", async (req, res) => {
+  const admin_id = await MuskAdmin.findById({ _id: req.body.adminId });
+  if (!admin_id) {
+    res.json({
+      message: {
+        type: "error",
+        text: "Not an Admin",
+      },
+    });
+  } else {
+    const randomID = uuidv4();
+    let newQuote = new ApiModel({
+      _id: randomID,
+      quote: req.body.quote,
+      quoteURL: `http://localhost:6900/api/tweet/${randomID}`,
+      addedBy: admin_id.username,
+    });
+    try {
+      await newQuote.save();
+      res.json(newQuote);
+    } catch (err) {
+      res.status(400).json({ message: err });
     }
   }
 });
 app.get("*", function (req, res) {
   res.redirect("/api");
 });
+
 // NOT YET SURE IF WILL ADD
 // app.get("/api/category/:category", (req, res) => {
 //   try {
