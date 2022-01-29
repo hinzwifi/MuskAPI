@@ -6,8 +6,6 @@ A hand-curated quotes from Elon Musk
 
 #### https://muskapi.herokuapp.com/
 
-- **Not Deployed Yet**
-
 ## API Reference
 
 #### Get all quotes
@@ -45,7 +43,7 @@ A hand-curated quotes from Elon Musk
 
 <!-- ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here) -->
 
-```JSON
+```
 {
 message: {
 type: "success",
