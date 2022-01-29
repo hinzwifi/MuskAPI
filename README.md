@@ -1,6 +1,6 @@
-# Musk API
+# Musk API 🚀
 
-A hand-curated quotes from Elon Musk 🚀
+A hand-curated quotes from Elon Musk
 
 ## Official link
 
@@ -12,7 +12,7 @@ A hand-curated quotes from Elon Musk 🚀
 
 #### Get all items
 
-```http
+```
   GET /api/
 ```
 
@@ -22,7 +22,7 @@ A hand-curated quotes from Elon Musk 🚀
 
 #### Get a specific quote
 
-```http
+```
   GET /api/tweet/${id}
 ```
 
@@ -32,7 +32,7 @@ A hand-curated quotes from Elon Musk 🚀
 
 #### Get quotes using a category
 
-```http
+```
   GET /api/tweet/category/${query}
 ```
 
