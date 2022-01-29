@@ -8,7 +8,7 @@ A hand-curated quotes from Elon Musk
 
 ## API Reference
 
-#### Get all the quote
+#### Get all the quotes
 
 ```
   GET /api/
@@ -22,20 +22,6 @@ A hand-curated quotes from Elon Musk
   GET /api/random
 ```
 
-##### Result:
-
-```
-{
-  message: {
-      type: "success",
-      quoteId: "4cfdb0da-125e-4430-bf81-ca3e95b1147d",
-      quotes: "It is possible for ordinary people to choose to be extraordinary.",
-      URL: "https://muskapi.herokuapp.com/api/quote/4cfdb0da-125e-4430-bf81-ca3e95b1147d",
-      addedBy: "hinzwifi"
-  }
-}
-```
-
 <br/>
 
 #### Get a specific quote
@@ -44,9 +30,9 @@ A hand-curated quotes from Elon Musk
   GET /api/quote/${id}
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+| Parameter | Type     | Required | Description                       |
+| :-------- | :------- | :------- | :-------------------------------- |
+| `id`      | `string` | `Yes`    | **Required**. Id of item to fetch |
 
 #### Add new quotes
 
@@ -54,10 +40,10 @@ A hand-curated quotes from Elon Musk
   POST /api/admin
 ```
 
-| Req.body  | Type     | Description                                |
-| :-------- | :------- | :----------------------------------------- |
-| `adminId` | `string` | **Required**. Needed the account Id to add |
-| `quote`   | `string` | **Required**. Add the quote                |
+| Req.body  | Type     | Required | Description                  |
+| :-------- | :------- | :------- | :--------------------------- |
+| `adminId` | `string` | `Yes`    | Needed the account Id to add |
+| `quote`   | `string` | `Yes`    | Add the quote                |
 
 ## Screenshots
 
