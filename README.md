@@ -4,7 +4,7 @@ A hand-curated quotes from Elon Musk
 
 ## Base URL
 
-#### https://muskapi.hinzwifi.xyz
+#### https://muskapi.herokuapp.com/
 
 - **Not Deployed Yet**
 
@@ -23,26 +23,39 @@ A hand-curated quotes from Elon Musk
 #### Get a specific quote
 
 ```
-  GET /api/tweet/${id}
+  GET /api/quote/${id}
 ```
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `id`      | `string` | **Required**. Id of item to fetch |
 
-#### Get quotes using a category
+#### Add new quotes
 
 ```
-  GET /api/tweet/category/${query}
+  POST /api/admin
 ```
 
-| Parameter | Type     | Description                              |
-| :-------- | :------- | :--------------------------------------- |
-| `query`   | `string` | **Required**. Category of tweet to fetch |
+| Req.body  | Type     | Description                                |
+| :-------- | :------- | :----------------------------------------- |
+| `adminId` | `string` | **Required**. Needed the account Id to add |
+| `quote`   | `string` | **Required**. Add the quote                |
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<!-- ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here) -->
+
+```
+{
+message: {
+type: "success",
+quoteId: "4cfdb0da-125e-4430-bf81-ca3e95b1147d",
+quotes: "It is possible for ordinary people to choose to be extraordinary.",
+URL: "https://muskapi.herokuapp.com/api/quote/4cfdb0da-125e-4430-bf81-ca3e95b1147d",
+addedBy: "hinzwifi"
+}
+}
+```
 
 ## FAQ
 
