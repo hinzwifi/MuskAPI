@@ -1,19 +1,14 @@
 module.exports = (mongoose) => {
   const muskModel = mongoose.model(
-    "Musk",
+    "MuskAdmin",
     mongoose.Schema({
       _id: String,
-      quote: {
+      username: {
         type: String,
         required: true,
       },
-      quoteURL: {
-        type: String,
-        required: true,
-      },
-      addedBy: {
-        type: String,
-        required: true,
+      admin: {
+        type: Boolean,
       },
     })
   );
