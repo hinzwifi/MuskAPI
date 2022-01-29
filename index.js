@@ -78,30 +78,30 @@ app.post("/api/admin/:id", async (req, res) => {
     }
   }
 });
-
-// NOT YET SURE IF WILL ADD
-app.get("/api/category/:category", (req, res) => {
-  try {
-    const quote_category = req.params.category;
-    ApiModel.find({ category: quote_category }).exec(function (err, books) {
-      if (err) {
-        res.send("error has occured");
-      } else {
-        const random = sample(books);
-        res.json({
-          message: {
-            type: "success",
-            quotes: random.quote,
-            URL: random.quoteURL,
-          },
-        });
-      }
-    });
-  } catch (err) {
-    res.status(400).json({ message: err });
-  }
-});
 app.get("*", function (req, res) {
   res.redirect("/api");
 });
+// NOT YET SURE IF WILL ADD
+// app.get("/api/category/:category", (req, res) => {
+//   try {
+//     const quote_category = req.params.category;
+//     ApiModel.find({ category: quote_category }).exec(function (err, books) {
+//       if (err) {
+//         res.send("error has occured");
+//       } else {
+//         const random = sample(books);
+//         res.json({
+//           message: {
+//             type: "success",
+//             quotes: random.quote,
+//             URL: random.quoteURL,
+//           },
+//         });
+//       }
+//     });
+//   } catch (err) {
+//     res.status(400).json({ message: err });
+//   }
+// });
+
 mongoose.connect(process.env.MONGO_URL || process.env.MONGO_LOCAL_URL);
