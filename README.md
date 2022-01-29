@@ -45,13 +45,13 @@ A hand-curated quotes from Elon Musk
 
 ```
 {
-message: {
-type: "success",
-quoteId: "4cfdb0da-125e-4430-bf81-ca3e95b1147d",
-quotes: "It is possible for ordinary people to choose to be extraordinary.",
-URL: "https://muskapi.herokuapp.com/api/quote/4cfdb0da-125e-4430-bf81-ca3e95b1147d",
-addedBy: "hinzwifi"
-}
+  message: {
+      type: "success",
+      quoteId: "4cfdb0da-125e-4430-bf81-ca3e95b1147d",
+      quotes: "It is possible for ordinary people to choose to be extraordinary.",
+      URL: "https://muskapi.herokuapp.com/api/quote/4cfdb0da-125e-4430-bf81-ca3e95b1147d",
+      addedBy: "hinzwifi"
+  }
 }
 ```
 
