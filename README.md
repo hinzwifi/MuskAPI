@@ -4,7 +4,7 @@ A hand-curated quotes from Elon Musk 🚀
 
 ## Official link
 
-#### https://MuskAPI.hinzwifi.xyz
+#### https://muskapi.hinzwifi.xyz
 
 - **Not Deployed Yet**
 
