@@ -33,7 +33,7 @@ app.get("/api", (req, res) => {
 app.get("/", (req, res) => {
   res.json("Site Here");
 });
-app.get("/api/tweet/:id", async (req, res) => {
+app.get("/api/quote/:id", async (req, res) => {
   try {
     const tweet_id = await ApiModel.findById({ _id: req.params.id });
     if (!tweet_id) {
@@ -72,7 +72,7 @@ app.post("/api/admin", async (req, res) => {
     let newQuote = new ApiModel({
       _id: randomID,
       quote: req.body.quote,
-      quoteURL: `/api/tweet/${randomID}`,
+      quoteURL: `/api/quote/${randomID}`,
       addedBy: admin_id.username,
     });
     try {
