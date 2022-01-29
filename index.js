@@ -21,8 +21,9 @@ app.get("/api", (req, res) => {
       res.json({
         message: {
           type: "success",
+          quoteId: random._id,
           quotes: random.quote,
-          URL: random.quoteURL,
+          URL: `https://${req.headers.host}${random.quoteURL}`,
           addedBy: random.addedBy,
         },
       });
@@ -48,7 +49,7 @@ app.get("/api/tweet/:id", async (req, res) => {
           type: "success",
           quoteId: tweet_id._id,
           quotes: tweet_id.quote,
-          URL: tweet_id.quoteURL,
+          URL: `https://${req.headers.host}${tweet_id.quoteURL}`,
           home: `https://${req.headers.host}`,
         },
       });
@@ -71,7 +72,7 @@ app.post("/api/admin", async (req, res) => {
     let newQuote = new ApiModel({
       _id: randomID,
       quote: req.body.quote,
-      quoteURL: `http://localhost:6900/api/tweet/${randomID}`,
+      quoteURL: `/api/tweet/${randomID}`,
       addedBy: admin_id.username,
     });
     try {
