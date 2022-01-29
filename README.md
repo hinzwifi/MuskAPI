@@ -71,11 +71,13 @@ A hand-curated quotes from Elon Musk
 
 ## Lessons Learned
 
-What did you learn while building this project?
+#### What did you learn while building this project?
 
-- Still working on it
-  What challenges did you face and how did you overcome them?
-- Still working on it
+- Express and Middleware
+
+#### What challenges did you face and how did you overcome them?
+
+- Looking for awesome quotes by Elon Musk
 
 ## Authors
 
