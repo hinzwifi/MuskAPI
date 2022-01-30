@@ -7,7 +7,12 @@ const forEa = require("lodash/forEach");
 const { v4: uuidv4 } = require("uuid");
 const ApiModel = require("./model/musk.model")(mongoose);
 const MuskAdmin = require("./model/muskAdmin.model")(mongoose);
-const port = 3000;
+const port = 3002;
+const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+};
+app.use(cors(corsOptions));
 require("dotenv").config();
 app.use(bodyParser.json());
 app.use(express());

@@ -6,10 +6,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^0.25.0",
     "daisyui": "^1.25.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
+    "react-router": "^6.2.1",
     "theme-change": "^2.0.2",
     "workbox-recipes": "^6.2.4",
     "workbox-routing": "^6.2.4",
