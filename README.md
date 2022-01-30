@@ -51,7 +51,7 @@ A hand-curated quotes from Elon Musk
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/hinzwifi/MuskAPI/blob/9355814e00e9b65763e73eab3f03156253cfc012/MuskAPI.png)
 
 ## FAQ
 
