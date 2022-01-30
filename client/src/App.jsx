@@ -4,7 +4,7 @@ import axios from "axios";
 import { AiOutlineTwitter, AiOutlineLink } from "react-icons/ai";
 function App() {
   const [word, setWord] = useState({
-    id: 0,
+    id: "Loading...",
     quote: "Loading...",
   });
   const getQuote = async () => {
@@ -14,7 +14,7 @@ function App() {
         const data = response.data;
         const message = data.message;
         setWord({
-          id: message.id,
+          id: message.quoteId,
           quote: message.quote,
         });
       })
@@ -30,30 +30,28 @@ function App() {
     <>
       <div className=" max-w-lg  mx-auto mt-3      h-auto">
         <div className="  py-5">
-          <div className="text-center text-4xl">MuskAPI 🚀</div>
+          <div className="text-center text-4xl">MuskAPI🚀</div>
           <div data-prefix="$" className="text-lg text-center">
-            A hand curated quotes from Elon Musk.
+            REST API for random Elon Musk quotes
           </div>
         </div>
         <div className="mb-2 max-w-lg mx-auto mt-3 flex  justify-between">
-          <div className="btn mr-2 ">
+          <a
+            href={`http://twitter.com/home?status=${word.quote} - https://muskapi.hinzwifi.xyz`}
+            target="_blank"
+            className="btn mr-2 "
+          >
             <AiOutlineTwitter size={24} className=" pr-2" />
-            <a
-              href={`http://twitter.com/home?status=${word.quote}`}
-              target="_blank"
-            >
-              Twitter
-            </a>
-          </div>
-          <div className="btn ">
+            Twitter
+          </a>
+          <a
+            href={`https://muskapi.herokuapp.com/api/quote/${word.id}`}
+            target="_blank"
+            className="btn "
+          >
             <AiOutlineLink size={24} className=" pr-2" />
-            <a
-              href={`https://muskapi.herokuapp.com/api/quote/${word.id}`}
-              target="_blank"
-            >
-              Link
-            </a>
-          </div>
+            Link
+          </a>
         </div>
         <div className="card max-w-lg mx-3 sm:mx-auto  rounded-none     lg:card-side bg-accent text-accent-content ">
           <div className="card-body p-3 md:p-8 bg-secondary">
@@ -72,7 +70,15 @@ function App() {
         </div>
         <footer className="p-4 max-w-lg    mx-3 md:mx-auto  bg-base-300 text-base-content footer-center">
           <div>
-            <p>Made with 💗 by hinzwifi</p>
+            <p>
+              Made with 💗 by{" "}
+              <a
+                href="https://github.com/hinzwifi/MuskAPI"
+                className="link link-neutral-focus"
+              >
+                hinzwifi
+              </a>
+            </p>
           </div>
         </footer>
       </div>
