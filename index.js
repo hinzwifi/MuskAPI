@@ -136,4 +136,4 @@ app.get("*", function (req, res) {
 //   }
 // });
 
-mongoose.connect(process.env.MONGO_URL || process.env.MONGO_LOCAL_URL);
+mongoose.connect(process.env.MONGO_URL);
