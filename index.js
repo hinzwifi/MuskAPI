@@ -104,7 +104,14 @@ app.post("/api/admin", async (req, res) => {
         await newQuote.save();
         res.json(newQuote);
       } catch (err) {
-        res.status(400).json({ message: err });
+        if (err.code === 11000) {
+          res.status(400).json({
+            message: {
+              type: "Duplication",
+              text: "It is already in the database",
+            },
+          });
+        }
       }
     }
   }
