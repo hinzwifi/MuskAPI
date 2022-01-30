@@ -86,3 +86,7 @@ A hand-curated quotes from Elon Musk
 ## Feedback
 
 If you have any feedback, please reach out to me at markjoshuahaynes@protonmail.com
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
