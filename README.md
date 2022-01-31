@@ -2,7 +2,7 @@
 
 A hand-curated quotes from Elon Musk
 
-## Base URL
+## API Base URL
 
 #### https://muskapi.herokuapp.com/
 
