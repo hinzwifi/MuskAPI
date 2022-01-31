@@ -19,7 +19,7 @@ app.use(express());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(process.env.PORT || port);
 app.get("/", (req, res) => {
-  res.json({ this: "Site Here" });
+  res.redirect("https://muskapi.hinzwifi.xyz");
 });
 app.get("/api/random", (req, res) => {
   ApiModel.find({}).exec(function (err, books) {
