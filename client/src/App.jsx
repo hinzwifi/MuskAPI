@@ -8,6 +8,9 @@ function App() {
     quote: "Loading...",
   });
   const getQuote = async () => {
+    setWord({
+      quote: "Loading...",
+    });
     axios
       .get("https://muskapi.herokuapp.com/api/random")
       .then((response) => {
